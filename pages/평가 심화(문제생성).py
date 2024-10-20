@@ -11,6 +11,8 @@ if 'answer' not in st.session_state:
 if 'new_num1' not in st.session_state:
     st.session_state.new_num1 = None
 if 'new_num2' not in st.session_state:
+    st.session_state.new_num2 = None
+if 'new_answer' not in st.session_state:
     st.session_state.new_answer = None
 
 # 페이지 제목
@@ -31,19 +33,21 @@ if st.button('제출'):
         st.success(f"정답입니다! 답: {st.session_state.answer}")
         st.balloons()
     else:
-        st.errsor(f"틀렸습니다. 다시 시도해보세요. 정답은 {st.session_state.answer}입니다.")
+        st.error(f"틀렸습니다. 다시 시도해보세요. 정답은 {st.session_state.answer}입니다.")
 
 # 새로운 문제 생성 버튼
 if st.button('새로운 문제'):
     # 새로운 문제와 정답 생성
-    st.sesssion_state.new_num1 = random.randint(1, 100)
+    st.session_state.new_num1 = random.randint(1, 100)
+    st.session_state.new_num2 = random.randint(1, 100)
+    st.session_state.new_answer = st.session_state.new_num1 + st.session_state.new_num2
 
 # 새로운 문제가 있을 때만 출력
 if st.session_state.new_num1 is not None and st.session_state.new_num2 is not None:
     st.write(f"새로운 문제: {st.session_state.new_num1} + {st.session_state.new_num2} = ?")
 
     # 새로운 문제에 대한 답 입력
-    new_studdent_answer = st.number_input('새 문제의 답을 입력하세요:', min_value=0, max_value=200, step=1, key='new_student_answer')
+    new_student_answer = st.number_input('새 문제의 답을 입력하세요:', min_value=0, max_value=200, step=1, key='new_student_answer')
 
     # 새로운 문제 답 제출 버튼
     if st.button('새 문제 제출'):
