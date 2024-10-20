@@ -1,7 +1,7 @@
 import streamlit as st
 
 st.title("👋🏻 Streamlit 앱 만들기")
-st.subheader("실습 페이지입니다.")
+st.subheader("이 페이지는 실습 페이지입니다.")
 st.write("오른쪽 위의 'fork' 버튼을 눌러주세요. 이 페이지와 앱이 그대로 복사됩니다.")
 
 st.link_button("streamlit 매뉴얼 페이지 바로가기!", "https://surish.notion.site/streamlit-113eef51495c8083986cc65f2d07470c?pvs=73")
