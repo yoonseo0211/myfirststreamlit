@@ -4,7 +4,6 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import streamlit as st
 import openpyxl
-import koreanize_matplotlib
 
 # Streamlit 페이지 설정
 st.set_page_config(page_title="파일 업로드 및 등급 계산", layout="wide")
@@ -89,7 +88,7 @@ if uploaded_file is not None:
     st.subheader("점수 분포")
     fig, ax = plt.subplots(figsize=(10, 6))
     sns.histplot(x='점수', data=df_sorted, ax=ax, binwidth=10, binrange=[0, 100])
-    ax.set_title('점수 분포', fontsize=16)
+    ax.set_title('Distribution of Scores', fontsize=16)
     st.pyplot(fig)
 
     # 반별 점수 상자 그림 (Boxplot)
@@ -107,7 +106,7 @@ if uploaded_file is not None:
     ax.set_xticklabels([str(i) for i in range(1, 11)])  # 1부터 10까지 레이블로 표시
 
     # 제목 설정
-    ax.set_title('반별 점수 분포', fontsize=16)
+    ax.set_title('Score distribution by class', fontsize=16)
 
     # Streamlit에 차트 표시
     st.pyplot(fig)
