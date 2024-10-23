@@ -12,3 +12,4 @@ with tab2:
     st.latex("y=x^2+1")
     st.text_input("두 그래프의 모양은 어떻게 다른가요?")
     st.components.v1.iframe("https://www.desmos.com/calculator", height=500)
+
